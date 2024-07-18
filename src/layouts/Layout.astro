@@ -34,45 +34,22 @@ const { title } = Astro.props;
 
   /* Define el gradiente en una clase personalizada */
   .bg-gradient {
-    background: radial-gradient(circle at top center, var(--color-primary) -100%, black 110%);
-    position: fixed;
+    background: radial-gradient(circle at top center, var(--color-primary) -140%, black 150%);
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1; /* Asegura que esté detrás del contenido */
   }
 
   /* Define tu color primario en variables CSS */
   :root {
-    --color-primary: #4f772d; /* Cambia este color por tu color primario */
-  }
-
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
+    --color-primary: #003566; /* Cambia este color por tu color primario */
   }
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     background: #13151a;
     background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
   }
 </style>
