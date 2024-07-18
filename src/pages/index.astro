@@ -1,9 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 import Card from "../components/Card.astro";
 ---
 
 <Layout title="Facundo | Software Developer">
-  <h1 class="font-josefin text-3xl text-primary-400">Este es un título</h1>
-  <p class="font-josefin text-lg text-white-100">Este es un párrafo</p>
+  <Header />
+  <main class="pt-16">
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">Home</h1>
+    </section>
+    <section
+      id="experience"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">Experience</h1>
+    </section>
+    <section
+      id="projects"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">Projects</h1>
+    </section>
+    <section
+      id="about"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">About</h1>
+    </section>
+    <section
+      id="technologies"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">Technologies</h1>
+    </section>
+    <section
+      id="reach-me"
+      class="min-h-screen flex items-center justify-center text-white-100"
+    >
+      <h1 class="text-4xl font-bold">Reach Me</h1>
+    </section>
+  </main>
 </Layout>

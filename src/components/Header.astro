@@ -1,0 +1,39 @@
+---
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { name: 'Home', href: '#home' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'About', href: '#about' },
+  { name: 'Technologies', href: '#technologies' },
+  { name: 'Reach me', href: '#reach-me' }
+];
+---
+
+<header class="bg-transparent text-white fixed w-full z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex-shrink-0 flex items-center">
+        <a href="#home" class="text-2xl font-bold">Facundo's Portfolio</a>
+      </div>
+      <div class="hidden md:flex md:items-center md:space-x-4">
+        {navLinks.map(link => (
+          <a href={link.href} class="text-lg hover:text-gray-400">
+            {link.name}
+          </a>
+        ))}
+      </div>
+      <div class="flex items-center md:hidden">
+        <button class="text-gray-400 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
