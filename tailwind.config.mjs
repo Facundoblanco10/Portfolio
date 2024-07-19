@@ -17,28 +17,48 @@ export default {
         primary: {
           DEFAULT: "#ffd60a",
           400: "#ffd60a",
-		  500: "#ffc300",
+          500: "#ffc300",
         },
-		secondary: {
-			DEFAULT: '#000814',
-			700: '#003566',
-			800: '#001d3d',
-			900: '#000814'
-		}
+        secondary: {
+          DEFAULT: "#000814",
+          700: "#003566",
+          800: "#001d3d",
+          900: "#000814",
+        },
+      },
+      fontFamily: {
+        josefin: ["Josefin Sans", "sans-serif"],
+      },
+      height: {
+        100: "28rem",
+        120: "32rem",
+        140: "36rem",
+        160: "40rem",
+      },
+      maxWidth: {
+        xl: "36rem",
+        "2xl": "42rem",
+        "3xl": "48rem",
+        "4xl": "54rem",
+      },
+      lineHeight: {
+        12: "3rem",
+        14: "3.5rem",
+        16: "4rem",
+      },
+      zIndex: {
+        5: "5",
+        4: "4",
+        3: "3",
+        2: "2",
+        1: "1",
+        "-1": "-1",
+        "-2": "-2",
+        "-3": "-3",
+        "-4": "-4",
+        "-5": "-5",
       },
     },
-    fontFamily: {
-      josefin: ["Josefin Sans", "sans-serif"],
-    },
-	maxWidth: {
-		'xl': '36rem',
-		'2xl': '42rem',
-		'3xl': '48rem',
-		'4xl': '54rem',
-	},
-	leading: {
-		'16': '4rem',
-	}
   },
   plugins: [],
 };

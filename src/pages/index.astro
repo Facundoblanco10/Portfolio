@@ -1,62 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import Card from "../components/Card.astro";
+import Home from "../components/sections/Home.astro";
+import Experience from "../components/sections/Experience.astro";
+import Projects from "../components/sections/Projects.astro";
+import Technologies from "../components/sections/Technologies.astro";
+import About from "../components/sections/About.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <Layout title="Facundo | Software Developer">
   <Header />
-  <main class="lg:p-64 md:p-32 p-10">
-    <section
-      id="home"
-      class="flex flex-col md:flex-row items-start justify-center gap-8 text-white"
-    >
-      <div class="text-left md:text-left space-y-4">
-        <h1 class="text-6xl font-bold font-josefin leading-16">
-          My name is <span class="text-primary-400">Facundo</span>
-        </h1>
-        <p class="text-xl font-semibold">
-          I am a <span class="text-primary-400 text-nowrap">Software Developer</span> from Uruguay
-          and here is my portfolio.
-        </p>
-      </div>
-      <div class="flex-shrink-0 hidden md:block">
-        <img
-          src="/images/me.jpg"
-          alt="Facundo Blanco"
-          class="size-48 object-cover rounded-full"
-        />
-      </div>
-    </section>
-    <section
-      id="experience"
-      class="min-h-screen flex items-center justify-center text-white-100"
-    >
-      <h1 class="text-4xl font-bold font-josefin">Experience</h1>
-    </section>
-    <section
-      id="projects"
-      class="min-h-screen flex items-center justify-center text-white-100"
-    >
-      <h1 class="text-4xl font-bold font-josefin">Projects</h1>
-    </section>
-    <section
-      id="about"
-      class="min-h-screen flex items-center justify-center text-white-100"
-    >
-      <h1 class="text-4xl font-bold font-josefin">About</h1>
-    </section>
-    <section
-      id="technologies"
-      class="min-h-screen flex items-center justify-center text-white-100"
-    >
-      <h1 class="text-4xl font-bold font-josefin">Technologies</h1>
-    </section>
-    <section
-      id="contact"
-      class="min-h-screen flex items-center justify-center text-white-100"
-    >
-      <h1 class="text-4xl font-bold font-josefin">Contact</h1>
-    </section>
+  <main class="p-12">
+    <Home />
+    <Experience />
+    <Projects />
+    <Technologies />
+    <About />
+    <Contact />
   </main>
 </Layout>
