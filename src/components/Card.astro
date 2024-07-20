@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  classes?: string;
+}
+
+const { title, description, classes } = Astro.props;
+
+const baseClasses =
+  "block max-w-sm p-6 bg-white border border-secondary-600 rounded-lg shadow hover:bg-gray-100 dark:bg-secondary-800 dark:border-secondary-700 dark:hover:bg-secondary-700";
+
+const combinedClasses = `${baseClasses} ${classes}`;
+---
+
+<div class={combinedClasses}>
+  <h5
+    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    {title}
+  </h5>
+  <p class="font-normal text-gray-700 dark:text-gray-300">
+    {description}
+  </p>
+</div>

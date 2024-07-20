@@ -1,6 +1,42 @@
+---
+import Card from "../Card.astro";
+---
+
 <section
   id="about"
-  class="min-h-screen flex items-center justify-center text-white-100"
+  class="min-h-screen flex flex-col gap-8 items-center justify-center text-white-100"
 >
-  <h1 class="text-4xl font-bold font-josefin">About</h1>
+  <h1 class="text-4xl font-bold font-josefin">About me</h1>
+  <ul class="flex flex-col sm:grid gap-4 grid-cols-12">
+    <Card
+      title="FullStack Developer"
+      description="Experienced in both frontend and backend technologies, capable of building robust and scalable applications."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+    <Card
+      title="Problem Solver"
+      description="Adept at analyzing and resolving complex issues efficiently, ensuring seamless functionality."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+    <Card
+      title="Proactive"
+      description="Takes initiative and anticipates potential issues, consistently working towards improving processes and achieving goals."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+    <Card
+      title="Team Player"
+      description="Collaborates effectively with cross-functional teams to achieve common goals and deliver high-quality results."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+    <Card
+      title="Fast Learner"
+      description="Quickly grasps new concepts and technologies, continuously expanding skill set to stay ahead in the industry."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+    <Card
+      title="Tech Enthusiast"
+      description="Passionate about exploring and leveraging the latest advancements in technology to drive innovation."
+      classes="sm:col-span-6 lg:col-span-4"
+    />
+  </ul>
 </section>

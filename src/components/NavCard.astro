@@ -1,0 +1,110 @@
+---
+interface Props {
+  tabs: Tab[];
+  classes?: string;
+}
+interface Tab {
+  id: string;
+  title: string;
+  content: string;
+  active: boolean;
+  image?: string;
+  classes?: string;
+}
+
+const { tabs, classes } = Astro.props;
+
+const baseClasses =
+  "block p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
+
+const combinedClasses = `${baseClasses} ${classes}`;
+---
+
+<div class={combinedClasses}>
+  <ul
+    class="flex flex-wrap text-sm gap-4 font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-secondary-800 dark:text-gray-400 dark:bg-secondary-800"
+    id="defaultTab"
+    role="tablist"
+  >
+    {
+      tabs.map((tab) => (
+        <li class="me-2" key={tab.id}>
+          <button
+            id={`${tab.id}-tab`}
+            data-tabs-target={`#${tab.id}`}
+            type="button"
+            role="tab"
+            aria-controls={tab.id}
+            aria-selected={tab.active ? "true" : "false"}
+            class={`tab-button inline-block rounded-ss-lg hover:bg-gray-100 text-lg dark:hover:bg-secondary-800 ${tab.active ? "text-primary dark:bg-secondary-800 dark:text-primary" : "hover:text-gray-600 dark:hover:text-gray-300"}`}
+          >
+            {tab.title}
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+  <div id="defaultTabContent">
+    {
+      tabs.map((tab) => (
+        <div
+          class={`tab-content flex gap-8 p-4 bg-white rounded-lg dark:bg-secondary-800 ${tab.active ? "" : "hidden"}`}
+          id={tab.id}
+          role="tabpanel"
+          aria-labelledby={`${tab.id}-tab`}
+          key={tab.id}
+        >
+          {tab.image && (
+            <img src={tab.image} alt={`${tab.title} image`} class="rounded-lg size-48" />
+          )}
+          <div>
+            <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              {tab.title}
+            </h2>
+            <p class="font-normal text-gray-700 dark:text-gray-400">
+              {tab.content}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        // Remove active classes from all buttons and contents
+        tabButtons.forEach((btn) => {
+          btn.classList.remove(
+            "text-primary",
+            "dark:bg-secondary-800",
+            "dark:text-primary"
+          );
+          btn.classList.add("hover:text-gray-600", "dark:hover:text-gray-300");
+          btn.setAttribute("aria-selected", "false");
+        });
+        tabContents.forEach((content) => content.classList.add("hidden"));
+
+        // Add active classes to the clicked button and its corresponding content
+        button.classList.add(
+          "text-primary",
+          "dark:bg-secondary-800",
+          "dark:text-primary"
+        );
+        button.classList.remove(
+          "hover:text-gray-600",
+          "dark:hover:text-gray-300"
+        );
+        button.setAttribute("aria-selected", "true");
+        const targetId = button.getAttribute("data-tabs-target");
+        if (!targetId) return;
+        document.querySelector(targetId).classList.remove("hidden");
+      });
+    });
+  });
+</script>
