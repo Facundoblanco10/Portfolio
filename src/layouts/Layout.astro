@@ -32,6 +32,10 @@ const { title, description } = Astro.props;
   </body>
 </html>
 <style is:global>
+  @import "tailwindcss/base";
+  @import "tailwindcss/components";
+  @import "tailwindcss/utilities";
+
   html {
     font-family: "Josefin Sans", sans-serif;
   }
@@ -45,5 +49,18 @@ const { title, description } = Astro.props;
   body {
     position: relative;
     background: #000814;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #001d3d; 
+    border-radius: 5px;
+    border: 3px solid #002952;
   }
 </style>

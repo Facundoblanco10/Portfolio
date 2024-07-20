@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       colors: {
         black: {
           DEFAULT: "#0B090A",
@@ -59,6 +62,10 @@ export default {
         "-3": "-3",
         "-4": "-4",
         "-5": "-5",
+      },
+      maxWidth: {
+        '1/4': '25%',
+        '3/4': '75%',
       },
     },
   },

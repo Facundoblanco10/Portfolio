@@ -18,17 +18,26 @@ const baseClasses =
   "block p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
 
 const combinedClasses = `${baseClasses} ${classes}`;
+
+// Función para convertir URLs en enlaces HTML
+function convertUrlsToLinks(text: string) {
+  const urlPattern = /(https?:\/\/[^\s]+)/g;
+  return text.replace(
+    urlPattern,
+    '<a href="$1" target="_blank" class="text-blue-600 hover:underline">$1</a>'
+  );
+}
 ---
 
 <div class={combinedClasses}>
   <ul
-    class="flex flex-wrap text-sm gap-4 font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-secondary-800 dark:text-gray-400 dark:bg-secondary-800"
+    class="flex flex-wrap text-sm gap-x-4 font-medium text-center justify-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-secondary-800 dark:text-gray-400 dark:bg-secondary-800"
     id="defaultTab"
     role="tablist"
   >
     {
       tabs.map((tab) => (
-        <li class="me-2" key={tab.id}>
+        <li class="me-2">
           <button
             id={`${tab.id}-tab`}
             data-tabs-target={`#${tab.id}`}
@@ -48,23 +57,36 @@ const combinedClasses = `${baseClasses} ${classes}`;
     {
       tabs.map((tab) => (
         <div
-          class={`tab-content flex gap-8 p-4 bg-white rounded-lg dark:bg-secondary-800 ${tab.active ? "" : "hidden"}`}
+          class={`tab-content p-4 bg-white rounded-lg dark:bg-secondary-800 ${tab.active ? "" : "hidden"}`}
           id={tab.id}
           role="tabpanel"
           aria-labelledby={`${tab.id}-tab`}
-          key={tab.id}
         >
-          {tab.image && (
-            <img src={tab.image} alt={`${tab.title} image`} class="rounded-lg size-48" />
-          )}
           <div>
+            {tab.image && (
+              <img
+                src={tab.image}
+                alt={`${tab.title} image`}
+                class="hidden sm:block rounded-lg object-cover w-36 h-36 float-right ml-4 mb-4 border border-secondary-600 dark:border-secondary-700"
+              />
+            )}
             <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
               {tab.title}
             </h2>
-            <p class="font-normal text-gray-700 dark:text-gray-400">
-              {tab.content}
-            </p>
+            <p
+              class="font-normal text-gray-700 dark:text-gray-400"
+              set:html={tab.content}
+            />
           </div>
+          {tab.image && (
+            <div class="sm:float-right sm:ml-4 sm:mb-0 flex justify-center items-center">
+              <img
+                src={tab.image}
+                alt={`${tab.title} image`}
+                class="sm:hidden rounded-lg object-cover w-36 h-36 border border-secondary-600 dark:border-secondary-700 sm:float-right sm:ml-4 sm:mb-0"
+              />
+            </div>
+          )}
         </div>
       ))
     }

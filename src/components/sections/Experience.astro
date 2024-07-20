@@ -3,30 +3,33 @@ import NavCard from "../NavCard.astro";
 
 const tabs = [
   {
-    id: "about",
+    id: "experience-about",
     title: "About",
-    content: "I have been working as a Full Stack Developer at OnePlay LLC, a company dedicated to creating streaming service platforms for various devices and businesses, since May 2023. My role involves building and maintaining web applications using Angular, Laravel, PHP, JavaScript, and TypeScript. I collaborate with cross-functional teams to deliver high-quality software solutions.",
+    content:
+      "I have been working as a Full Stack Developer at OnePlay LLC, a company dedicated to creating streaming service platforms for various devices and businesses, since May 2023. My role involves building and maintaining web applications using Angular, Laravel, PHP, JavaScript, and TypeScript. I collaborate with cross-functional teams to deliver high-quality software solutions.",
     active: true,
-    image: "/public/images/me.jpg",
+    image: "/public/images/oneplay.png",
   },
   {
-    id: "projects",
+    id: "experience-projects",
     title: "Projects",
-    content: "At OnePlay LLC, I have contributed to various projects, including developing a scalable e-commerce platform, creating dynamic user interfaces, and implementing RESTful APIs for streaming services. My work ensures seamless user experiences and efficient back-end functionality for diverse streaming platforms.",
+    content:
+      "At OnePlay LLC, I have contributed to various projects, including working on different web streaming platforms such as <a class='underline' href='https://live.nacionaltvplus.com' target='_blank'>live.nacionaltvplus.com</a>, <a class='underline' href='https://live.filmity.com' target='_blank'>live.filmity.com</a>, and <a class='underline' href='https://live.onstream.com' target='_blank'>live.onstream.com</a>, using Angular for the frontend. I am responsible for developing the company's back office using Laravel, and creating landing pages with HTML, CSS, and JavaScript.",
     active: false,
-    image: "/public/images/me.jpg",
+    image: "/public/images/filmity.webp",
   },
   {
-    id: "technologies",
+    id: "experience-technologies",
     title: "Technologies",
-    content: "My tech stack includes Angular for front-end development, Laravel and PHP for back-end services, and JavaScript and TypeScript for enhancing application functionality. I also utilize various tools and frameworks to streamline development processes, ensuring optimal performance for streaming service platforms.",
+    content:
+      "My tech stack includes Angular for front-end development, Laravel and PHP for back-end services, and JavaScript and TypeScript for enhancing application functionality. I also utilize various tools and frameworks to streamline development processes, ensuring optimal performance for streaming service platforms.",
     active: false,
-    image: "/public/images/me.jpg",
   },
   {
-    id: "achievements",
+    id: "experience-achievements",
     title: "Achievements",
-    content: "Throughout my time at OnePlay LLC, I have achieved significant milestones, such as reducing page load times by 30%, increasing application performance, and leading a team of developers to successfully deliver complex streaming service projects on time.",
+    content:
+      "Throughout my time at OnePlay LLC, I have achieved significant milestones, such as reducing page load times by 30%, increasing application performance, and leading a team of developers to successfully deliver complex streaming service projects on time.",
     active: false,
   },
 ];
@@ -38,11 +41,11 @@ const tabs = [
 >
   <h1 class="text-4xl font-bold font-josefin">Experience</h1>
   <div class="flex flex-col lg:flex-row justify-center items-center gap-4">
-    <div class="flex flex-col justify-center items-center gap-4">
+    <div class="flex flex-col justify-center items-center gap-2">
       <p class="text-4xl text-nowrap text-primary-500">FullStack Developer</p>
       <h3 class="text-4xl text-nowrap">OnePlay LLC</h3>
       <h4 class="text-xl text-nowrap opacity-80">May 2023 - Present</h4>
     </div>
-    <NavCard tabs={tabs} />
+    <NavCard tabs={tabs} classes="lg:max-w-[50svw]" />
   </div>
 </section>
