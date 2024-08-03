@@ -1,6 +1,112 @@
+---
+import IconsCard from "../IconsCard.astro";
+import type { Icon } from "../../interfaces/icon";
+
+const frontendIcons: Icon[] = [
+  {
+    title: "Angular",
+    url: "/src/components/icons/AngularIcon.astro",
+  },
+  {
+    title: "Vue",
+    url: "/src/components/icons/VueIcon.astro",
+  },
+  {
+    title: "TypeScript",
+    url: "/src/components/icons/TypescriptIcon.astro",
+  },
+  {
+    title: "JavaScript",
+    url: "/src/components/icons/JavascriptIcon.astro",
+  },
+
+  {
+    title: "HTML",
+    url: "/src/components/icons/HtmlIcon.astro",
+  },
+  {
+    title: "CSS",
+    url: "/src/components/icons/CssIcon.astro",
+  },
+  {
+    title: "Sass",
+    url: "/src/components/icons/SassIcon.astro",
+  },
+  {
+    title: "Astro",
+    url: "/src/components/icons/AstroIcon.astro",
+  },
+  {
+    title: "Tailwind CSS",
+    url: "/src/components/icons/TailwindcssIcon.astro",
+  },
+];
+const backendIcons: Icon[] = [
+  {
+    title: "Laravel",
+    url: "/src/components/icons/LaravelIcon.astro",
+  },
+  {
+    title: "Php",
+    url: "/src/components/icons/PhpIcon.astro",
+  },
+  {
+    title: "C",
+    url: "/src/components/icons/CIcon.astro",
+  },
+  {
+    title: "Python",
+    url: "/src/components/icons/PythonIcon.astro",
+  },
+  {
+    title: "Node.js",
+    url: "/src/components/icons/NodejsIcon.astro",
+  },
+  {
+    title: "MySQL",
+    url: "/src/components/icons/MysqlIcon.astro",
+  },
+  {
+    title: "AWS",
+    url: "/src/components/icons/AwsIcon.astro",
+  },
+];
+const otherIcons: Icon[] = [
+  {
+    title: "Git",
+    url: "/src/components/icons/GitIcon.astro",
+  },
+  {
+    title: "Docker",
+    url: "/src/components/icons/DockerIcon.astro",
+  },
+  {
+    title: "Postman",
+    url: "/src/components/icons/PostmanIcon.astro",
+  },
+  {
+    title: "Github",
+    url: "/src/components/icons/GithubIcon.astro",
+  },
+  {
+    title: "Linux",
+    url: "/src/components/icons/LinuxIcon.astro",
+  },
+];
+---
+
 <section
   id="technologies"
-  class="min-h-screen flex items-center justify-center text-white-100"
+  class="min-h-screen flex flex-col gap-8 items-center justify-center text-white-100"
 >
   <h1 class="text-4xl font-bold font-josefin">Technologies</h1>
+  <ul class="flex flex-col sm:grid gap-4 grid-cols-12 max-w-4xl">
+    <IconsCard title="Frontend" classes="sm:col-span-6" icons={frontendIcons} />
+    <IconsCard title="Backend" classes="sm:col-span-6" icons={backendIcons} />
+    <IconsCard
+      title="Other tools"
+      classes="sm:col-span-full"
+      icons={otherIcons}
+    />
+  </ul>
 </section>

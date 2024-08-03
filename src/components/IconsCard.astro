@@ -1,0 +1,42 @@
+---
+// IconsCard.astro
+import type { Icon } from "../interfaces/icon";
+import Tooltip from "./Tooltip.astro";
+
+interface Props {
+  title: string;
+  icons: Icon[];
+  classes?: string;
+}
+
+const { title, icons, classes } = Astro.props;
+
+const baseClasses =
+  "block text-center p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
+const combinedClasses = `${baseClasses} ${classes}`;
+
+const resolveIconComponent = async (path: string) => {
+  const module = await import(path);
+  return module.default;
+};
+---
+
+<div class={combinedClasses}>
+  <h5
+    class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+  >
+    {title}
+  </h5>
+  <div class="flex flex-wrap gap-6 justify-center">
+    {
+      icons.map(async (icon) => {
+        const IconComponent = await resolveIconComponent(icon.url);
+        return (
+          <Tooltip content={icon.title}>
+            <IconComponent width="40" height="40" />
+          </Tooltip>
+        );
+      })
+    }
+  </div>
+</div>
