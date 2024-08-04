@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -28,6 +29,7 @@ const { title, description } = Astro.props;
     <div class="relative z-10">
       <Header />
       <slot />
+      <Footer />
     </div>
   </body>
 </html>
@@ -55,11 +57,11 @@ const { title, description } = Astro.props;
   }
 
   ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #001d3d; 
+    background-color: #001d3d;
     border-radius: 5px;
     border: 3px solid #002952;
   }
