@@ -53,6 +53,22 @@ const navLinks: NavLink[] = [
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    const navContainer = document.getElementById("nav-container");
+
+    const updateNavContainerClasses = () => {
+      if (navContainer !== null) {
+        if (window.scrollY > 50) {
+          navContainer.classList.remove("bg-opacity-0");
+          navContainer.classList.add("backdrop-blur");
+          navContainer.classList.add("bg-opacity-70");
+        } else {
+          navContainer.classList.remove("bg-opacity-70");
+          navContainer.classList.remove("backdrop-blur");
+          navContainer.classList.add("bg-opacity-0");
+        }
+      }
+    };
+
     document
       .querySelectorAll<HTMLAnchorElement>(".nav-link")
       .forEach((link) => {
@@ -66,22 +82,16 @@ const navLinks: NavLink[] = [
                 top: targetElement.getBoundingClientRect().top + window.scrollY,
                 behavior: "smooth",
               });
+              // Actualizar la URL sin recargar la página
+              history.pushState(null, "", targetId);
             }
           }
         });
       });
 
-    document.addEventListener("scroll", () => {
-      const navContainer = document.getElementById("nav-container");
-      if (navContainer !== null) {
-        if (window.scrollY > 50) {
-          navContainer.classList.remove("bg-opacity-0");
-          navContainer.classList.add("bg-opacity-90");
-        } else {
-          navContainer.classList.remove("bg-opacity-90");
-          navContainer.classList.add("bg-opacity-0");
-        }
-      }
-    });
+    document.addEventListener("scroll", updateNavContainerClasses);
+
+    // Check initial scroll position on DOM load
+    updateNavContainerClasses();
   });
 </script>

@@ -9,14 +9,14 @@ interface Props {
   classes?: string;
 }
 
-const { title, icons, classes } = Astro.props;
+const { title, icons: iconList, classes } = Astro.props;
 
 const baseClasses =
   "block text-center p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
 const combinedClasses = `${baseClasses} ${classes}`;
 
 const resolveIconComponent = async (path: string) => {
-  const module = await import(path);
+  const module = await import(/* @vite-ignore */ path);
   return module.default;
 };
 ---
@@ -29,8 +29,12 @@ const resolveIconComponent = async (path: string) => {
   </h5>
   <div class="flex flex-wrap gap-6 justify-center">
     {
-      icons.map(async (icon) => {
+      iconList.map(async (icon) => {
         const IconComponent = await resolveIconComponent(icon.url);
+        if (!IconComponent) {
+          console.error(`Unable to render IconComponent because it is undefined! Did you forget to import the component or is it possible there is a typo? Icon URL: ${icon.url}`);
+          return null;
+        }
         return (
           <Tooltip content={icon.title}>
             <IconComponent width="40" height="40" />
