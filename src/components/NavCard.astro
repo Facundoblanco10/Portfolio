@@ -15,7 +15,7 @@ interface Tab {
 const { tabs, classes } = Astro.props;
 
 const baseClasses =
-  "block p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
+  "p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
 
 const combinedClasses = `${baseClasses} ${classes}`;
 
@@ -31,7 +31,7 @@ function convertUrlsToLinks(text: string) {
 
 <div class={combinedClasses}>
   <ul
-    class="flex flex-wrap text-sm gap-x-4 font-medium text-center justify-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-secondary-800 dark:text-gray-400 dark:bg-secondary-800"
+    class="flex flex-wrap text-sm gap-x-4 gap-y-2 font-medium text-center justify-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-secondary-800 dark:text-gray-400 dark:bg-secondary-800"
     id="defaultTab"
     role="tablist"
   >
@@ -67,7 +67,7 @@ function convertUrlsToLinks(text: string) {
               <img
                 src={tab.image}
                 alt={`${tab.title} image`}
-                class="hidden sm:block rounded-lg object-cover w-36 h-36 float-right ml-4 mb-4 border border-secondary-600 dark:border-secondary-700"
+                class="max-w-[30svw] block rounded-lg object-cover w-36 float-right ml-4 mb-2 border border-secondary-600 dark:border-secondary-700"
               />
             )}
             <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -78,7 +78,7 @@ function convertUrlsToLinks(text: string) {
               set:html={tab.content}
             />
           </div>
-          {tab.image && (
+          {/* {tab.image && (
             <div class="sm:float-right sm:ml-4 sm:mb-0 flex justify-center items-center">
               <img
                 src={tab.image}
@@ -86,7 +86,7 @@ function convertUrlsToLinks(text: string) {
                 class="sm:hidden rounded-lg object-cover w-36 h-36 border border-secondary-600 dark:border-secondary-700 sm:float-right sm:ml-4 sm:mb-0"
               />
             </div>
-          )}
+          )} */}
         </div>
       ))
     }
@@ -125,7 +125,7 @@ function convertUrlsToLinks(text: string) {
         button.setAttribute("aria-selected", "true");
         const targetId = button.getAttribute("data-tabs-target");
         if (!targetId) return;
-        document.querySelector(targetId).classList.remove("hidden");
+        document.querySelector(targetId)?.classList.remove("hidden");
       });
     });
   });
