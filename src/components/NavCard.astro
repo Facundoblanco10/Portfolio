@@ -67,7 +67,7 @@ function convertUrlsToLinks(text: string) {
               <img
                 src={tab.image}
                 alt={`${tab.title} image`}
-                class="max-w-[30svw] block rounded-lg object-cover w-36 float-right ml-4 mb-2 border border-secondary-600 dark:border-secondary-700"
+                class="max-w-[28svw] block rounded-lg object-cover w-36 float-right ml-4 mb-2 border border-secondary-600 dark:border-secondary-700"
               />
             )}
             <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
@@ -78,15 +78,6 @@ function convertUrlsToLinks(text: string) {
               set:html={tab.content}
             />
           </div>
-          {/* {tab.image && (
-            <div class="sm:float-right sm:ml-4 sm:mb-0 flex justify-center items-center">
-              <img
-                src={tab.image}
-                alt={`${tab.title} image`}
-                class="sm:hidden rounded-lg object-cover w-36 h-36 border border-secondary-600 dark:border-secondary-700 sm:float-right sm:ml-4 sm:mb-0"
-              />
-            </div>
-          )} */}
         </div>
       ))
     }

@@ -1,29 +1,55 @@
 ---
 import Timeline from "../Timeline.astro";
-import type { TimelineItem } from "../../interfaces/timeline-item";
+import type {
+  TimelineItem,
+  TechnologyTag,
+} from "../../interfaces/timeline-item";
+
+const tags: TechnologyTag = {
+  laravel: {
+    name: "Laravel",
+    color: "bg-red-500/20",
+    icon: "/src/components/icons/LaravelIcon.astro",
+  },
+  vue: {
+    name: "Vue.js",
+    color: "bg-green-500/20",
+    icon: "/src/components/icons/VueIcon.astro",
+  },
+  mysql: {
+    name: "MySQL",
+    color: "bg-blue-500/20",
+    icon: "/src/components/icons/MysqlIcon.astro",
+  },
+  tailwind: {
+    name: "Tailwind CSS",
+    color: "bg-indigo-500/20",
+    icon: "/src/components/icons/TailwindcssIcon.astro",
+  },
+};
 
 const timelineItems: TimelineItem[] = [
   {
     title: "Agora Metrics",
     description:
-      "In this web project, I worked as a full stack developer, utilizing Laravel for the backend and Vue.js for the frontend. The project involved creating a comprehensive management system for product distribution companies, including modules for managing customers, employees, products, orders, sellers, and users. My role encompassed both the development of robust backend services and the creation of an intuitive, responsive frontend interface to ensure efficient and streamlined operations for the business.",
-    date: "In progress since January 2024",
-    imageUrl: "/images/agora-metrics-logo.png",
+      "In this web project, I worked as a full stack developer, using Laravel for the backend and Vue.js for the frontend. The project involved creating a comprehensive management system for product distribution companies, including modules for managing customers, employees, products, orders, sellers, and users. My role encompassed both the development of robust backend services and the creation of an intuitive, responsive frontend interface to ensure efficient and streamlined operations for the business.",
+    technologies: [tags.laravel, tags.vue, tags.mysql, tags.tailwind],
+    imageUrl: "/images/agora-metrics-logo.svg",
   },
   {
     title: "PetMate API",
     description:
       "In this project, I served as a backend developer, collaborating with my team to create an innovative system that integrates a mobile application with an IoT device powered by Arduino. My primary responsibility was to develop the API in Laravel that connects the mobile application to the backend, managing system logic, user settings, food types, and real-time notifications. Additionally, I focused on integrating the hardware, ensuring seamless communication between the Arduino device and our system, which enabled efficient management of the pets' feeding schedule.",
-    date: "Released on March 2023",
+    technologies: [tags.laravel, tags.mysql],
     imageUrl: "/images/petmate-logo.png",
-  }
+  },
 ];
 ---
 
 <section
   id="projects"
-  class="flex flex-col gap-8 min-h-screen items-center justify-center text-white-100 max-w-screen-lg mx-auto"
+  class="flex flex-col gap-8 items-center justify-center text-white-100 max-w-screen-lg mx-auto pt-20"
 >
   <h2 class="text-4xl font-bold font-josefin">Projects</h2>
-  <Timeline items={timelineItems}/>
+  <Timeline items={timelineItems} />
 </section>

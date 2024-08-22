@@ -11,7 +11,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style="">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -64,5 +64,10 @@ const { title, description } = Astro.props;
     background-color: #001d3d;
     border-radius: 5px;
     border: 3px solid #002952;
+  }
+  @media screen and (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
   }
 </style>
