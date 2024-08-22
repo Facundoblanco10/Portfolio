@@ -40,11 +40,9 @@ const { items } = Astro.props;
           </p>
         </div>
         {item.imageUrl && (
-          <img
-            src={item.imageUrl}
-            alt={item.title}
-            class="w-1/4 min-h-36 max-w-64 h-auto object-cover"
-          />
+          <div class="w-1/2 min-h-36 max-w-64">
+            <img src={item.imageUrl} alt={item.title} class="w-full h-auto rounded-lg hover:scale-95 transition-all duration-300 object-cover"/>
+          </div>
         )}
       </li>
     ))
