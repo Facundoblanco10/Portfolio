@@ -19,14 +19,6 @@ const baseClasses =
 
 const combinedClasses = `${baseClasses} ${classes}`;
 
-// Función para convertir URLs en enlaces HTML
-function convertUrlsToLinks(text: string) {
-  const urlPattern = /(https?:\/\/[^\s]+)/g;
-  return text.replace(
-    urlPattern,
-    '<a href="$1" target="_blank" class="text-blue-600 hover:underline">$1</a>'
-  );
-}
 ---
 
 <div class={combinedClasses}>
