@@ -1,0 +1,61 @@
+---
+import AngularIcon from "./icons/AngularIcon.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import AwsIcon from "./icons/AwsIcon.astro";
+import CIcon from "./icons/CIcon.astro";
+import CssIcon from "./icons/CssIcon.astro";
+import DockerIcon from "./icons/DockerIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import GitIcon from "./icons/GitIcon.astro";
+import HtmlIcon from "./icons/HtmlIcon.astro";
+import JavascriptIcon from "./icons/JavascriptIcon.astro";
+import LaravelIcon from "./icons/LaravelIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import LinuxIcon from "./icons/LinuxIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+import MysqlIcon from "./icons/MysqlIcon.astro";
+import NodejsIcon from "./icons/NodejsIcon.astro";
+import PhpIcon from "./icons/PhpIcon.astro";
+import PostmanIcon from "./icons/PostmanIcon.astro";
+import PythonIcon from "./icons/PythonIcon.astro";
+import SassIcon from "./icons/SassIcon.astro";
+import TailwindcssIcon from "./icons/TailwindcssIcon.astro";
+import TypescriptIcon from "./icons/TypescriptIcon.astro";
+import VueIcon from "./icons/VueIcon.astro";
+
+interface Props {
+  name: string;
+  width?: string;
+  height?: string;
+}
+const { name, width = 30, height = 30 } = Astro.props;
+
+const mapIcon: Record<string, any> = {
+  angular: AngularIcon,
+  astro: AstroIcon,
+  aws: AwsIcon,
+  c: CIcon,
+  css: CssIcon,
+  docker: DockerIcon,
+  github: GithubIcon,
+  git: GitIcon,
+  html: HtmlIcon,
+  javascript: JavascriptIcon,
+  laravel: LaravelIcon,
+  linkedin: LinkedinIcon,
+  linux: LinuxIcon,
+  mail: MailIcon,
+  mysql: MysqlIcon,
+  nodejs: NodejsIcon,
+  php: PhpIcon,
+  postman: PostmanIcon,
+  python: PythonIcon,
+  sass: SassIcon,
+  tailwind: TailwindcssIcon,
+  typescript: TypescriptIcon,
+  vue: VueIcon,
+};
+const IconComponent = mapIcon[name];
+---
+
+<IconComponent width={width} height={height}></IconComponent>

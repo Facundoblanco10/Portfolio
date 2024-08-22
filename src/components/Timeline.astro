@@ -1,16 +1,12 @@
 ---
 import type { TimelineItem } from "../interfaces/timeline-item";
+import Icon from "./Icon.astro";
 
 interface Props {
   items: TimelineItem[];
 }
 
 const { items } = Astro.props;
-
-const resolveIconComponent = async (path: string) => {
-  const module = await import(/* @vite-ignore */ path);
-  return module.default;
-};
 ---
 
 <ol class="relative border-l border-gray-200 dark:border-gray-700">
@@ -34,19 +30,12 @@ const resolveIconComponent = async (path: string) => {
           </h3>
           {item.technologies && (
             <ul class="flex flex-wrap gap-2 mb-4">
-              {item.technologies.map(async (tech) => {
-                const IconComponent = await resolveIconComponent(tech.icon);
-                if (!IconComponent) {
-                  console.error(
-                    `Unable to render IconComponent because it is undefined! Did you forget to import the component or is it possible there is a typo? Icon URL: ${tech.icon}`
-                  );
-                  return null;
-                }
+              {item.technologies.map((tech) => {
                 return (
                   <div
                     class={`flex gap-2 justify-center items-center text-sm rounded-full py-0.5 px-3 whitespace-nowrap ${tech.color}`}
                   >
-                    <IconComponent width="16" height="16" />
+                    <Icon width="16" height="16" name={tech.iconName} />
                     <span>{tech.name}</span>
                   </div>
                 );

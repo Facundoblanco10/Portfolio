@@ -1,11 +1,12 @@
 ---
 // IconsCard.astro
-import type { Icon } from "../interfaces/icon";
+import type { Icon as IconType } from "../interfaces/icon";
+import Icon from "./Icon.astro";
 import Tooltip from "./Tooltip.astro";
 
 interface Props {
   title: string;
-  icons: Icon[];
+  icons: IconType[];
   classes?: string;
 }
 
@@ -14,11 +15,6 @@ const { title, icons: iconList, classes } = Astro.props;
 const baseClasses =
   "block text-center p-6 bg-white border border-secondary-600 rounded-lg shadow dark:bg-secondary-800 dark:border-secondary-700";
 const combinedClasses = `${baseClasses} ${classes}`;
-
-const resolveIconComponent = async (path: string) => {
-  const module = await import(/* @vite-ignore */ path);
-  return module.default;
-};
 ---
 
 <div class={combinedClasses}>
@@ -29,15 +25,10 @@ const resolveIconComponent = async (path: string) => {
   </h5>
   <div class="flex flex-wrap gap-6 justify-center">
     {
-      iconList.map(async (icon) => {
-        const IconComponent = await resolveIconComponent(icon.url);
-        if (!IconComponent) {
-          console.error(`Unable to render IconComponent because it is undefined! Did you forget to import the component or is it possible there is a typo? Icon URL: ${icon.url}`);
-          return null;
-        }
+      iconList.map((icon) => {
         return (
           <Tooltip content={icon.title}>
-            <IconComponent width="40" height="40" />
+            <Icon width="40" height="40" name={icon.iconName} />
           </Tooltip>
         );
       })

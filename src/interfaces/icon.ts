@@ -1,6 +1,6 @@
 interface Icon {
   title: string;
-  url: string;
+  iconName: string;
 }
 
 export type { Icon };

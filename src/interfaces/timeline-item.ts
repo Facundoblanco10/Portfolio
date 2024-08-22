@@ -8,7 +8,7 @@ export interface TimelineItem {
 export interface Technology {
   name: string;
   color: string;
-  icon: string;
+  iconName: string;
 }
 
 export interface TechnologyTag {
